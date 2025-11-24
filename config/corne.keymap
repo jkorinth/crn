@@ -9,6 +9,15 @@
 #include <dt-bindings/zmk/bt.h>
 
 / {
+	combos {
+		compatible = "zmk,combos";
+		combo_lbracket {
+			timeout-ms = <15>;
+			key-positions = <4 5>;
+			bindings = <&kp LBKT>;
+		};
+	};
+
         keymap {
                 compatible = "zmk,keymap";
 
