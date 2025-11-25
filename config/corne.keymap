@@ -11,10 +11,66 @@
 / {
 	combos {
 		compatible = "zmk,combos";
+		timeout-ms = <15>;
+		combo_lparen {
+			key-positions = <3 4>;
+			bindings = <&kp LPAR>;
+		};
+		combo_rparen {
+			key-positions = <8 9>;
+			bindings = <&kp RPAR>;
+		};
+		combo_lbrace {
+			key-positions = <14 15>;
+			bindings = <&kp LBRC>;
+		};
+		combo_rbrace {
+			key-positions = <18 19>;
+			bindings = <&kp RBRC>;
+		};
 		combo_lbracket {
-			timeout-ms = <15>;
-			key-positions = <4 5>;
+			key-positions = <27 28>;
 			bindings = <&kp LBKT>;
+		};
+		combo_rbracket {
+			key-positions = <31 32>;
+			bindings = <&kp RBKT>;
+		};
+		combo_mul {
+			key-positions = <6 7>;
+			bindings = <&kp ASTERISK>;
+		};
+		combo_minus {
+			key-positions = <15 16>;
+			bindings = <&kp MINUS>;
+		};
+		combo_plus {
+			key-positions = <18 19>;
+			bindings = <&kp PLUS>;
+		};
+		combo_excl {
+			key-positions = <28 29>;
+			bindings = <&kp EXCL>;
+		};
+		combo_amps {
+			key-positions = <19 20>;
+			bindings = <&kp AMPS>;
+		};
+		combo_pipe {
+			key-positions = <30 31>;
+			bindings = <&kp PIPE>;
+		};
+		combo_bslh {
+			key-positions = <10 11>;
+			bindings = <&kp BSLH>;
+		};
+		combo_tilde {
+			key-positions = <0 1>;
+			bindings = <&kp TILDE>;
+		};
+		combo_clck {
+			key-positions = <12 13 14>;
+			bindings = <&kp CLCK>;
 		};
 	};
 
@@ -24,13 +80,13 @@
                 default_layer {
 // -----------------------------------------------------------------------------------------
 // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
-// | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
+// |  ESC |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
 // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
 //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
                         display-name = "Base";
                         bindings = <
    &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
-   &kp LCTRL &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
+   &kp ESC   &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
    &kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp ESC
                   &kp LGUI &mo 1 &kp SPACE   &kp RET &mo 2 &kp RALT
                         >;
@@ -43,10 +99,10 @@
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         display-name = "Lower";
                         bindings = <
-   &kp TAB    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
-   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
-   &kp LSHFT  &trans       &trans       &trans       &trans       &trans         &trans   &trans   &trans &trans    &trans &trans
-                          	        &kp LGUI     &trans       &kp SPACE      &kp RET  &trans   &kp RALT
+   &kp TAB    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8    &kp N9    &kp N0 &kp BSPC
+   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp LEFT &kp UP   &kp RIGHT &kp RIGHT &trans &trans
+   &kp LSHFT  &trans       &trans       &trans       &trans       &trans         &trans   &kp DOWN &trans    &trans    &trans &trans
+                          	        &trans       &trans       &trans         &trans   &trans   &trans
                         >;
                 };
 
@@ -65,9 +121,20 @@
                         >;
                 };
 
-                extra_1 {
-                        status = "reserved";
-                };
+		fkey_layer {
+// -----------------------------------------------------------------------------------------
+// |      |     |     |     |     |     |   |     |  F1  |  F2  |  F3  |  F4 |    |
+// |      |     |     |     |     |     |   |     |  F5  |  F6  |  F7  |  F8 |    |
+// |      |     |     |     |     |     |   |     |  F9  |  F10 | F11  | F12 |    |
+//                    |     |     |     |   |     |      |      |
+                        display-name = "F-key layer";
+                        bindings = <
+   &trans &trans &trans &trans &trans &trans         &trans &kp F1 &kp  F2 &kp  F3 &kp  F4 &trans
+   &trans &trans &trans &trans &trans &trans         &trans &kp F5 &kp  F6 &kp  F7 &kp  F8 &trans
+   &trans &trans &trans &trans &trans &trans         &trans &kp F9 &kp F10 &kp F11 &kp F12 &trans
+		        &trans &trans &trans         &trans &trans &trans
+                        >;
+		};
 
                 extra_2 {
                         status = "reserved";
