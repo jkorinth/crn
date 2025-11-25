@@ -92,6 +92,23 @@
 			bindings = <&kp UNDER>;
 		};
 
+		// bluetooth
+		combo_bt0 {
+			key-positions = <0 1 2 3 6>;
+			bindings = <&bt BT_SEL 0>;
+		};
+		combo_bt1 {
+			key-positions = <0 1 2 3 7>;
+			bindings = <&bt BT_SEL 1>;
+		};
+		combo_bt2 {
+			key-positions = <0 1 2 3 8>;
+			bindings = <&bt BT_SEL 2>;
+		};
+		combo_bt_clear {
+			key-positions = <0 1 2 3 11>;
+			bindings = <&bt BT_CLR>;
+		};
 	};
 
 	behaviors {
