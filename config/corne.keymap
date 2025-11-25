@@ -14,7 +14,7 @@
 		compatible = "zmk,combos";
 		timeout-ms = <15>;
 // -----------------------------------------------------------------------------------------
-// |     ~     |     |     (     /     | | |     *      )      |      |     |     \ 
+// |     ~     |     |     (     /     | | |     *      )      |      |     =     \ 
 // < CAPS LOCK >     |     {     -     | | |     +      }      &      |     |     |
 // |     |     |     |     [     !     | | |    "|"     ]      _      |     |     |
 //                   |     |     |     | | |     |      |      |
@@ -38,6 +38,10 @@
 		combo_rparen {
 			key-positions = <7 8>;
 			bindings = <&kp RPAR>;
+		};
+		combo_eq {
+			key-positions = <9 10>;
+			bindings = <&kp EQL>;
 		};
 		combo_bslh {
 			key-positions = <10 11>;
