@@ -15,7 +15,7 @@
 		timeout-ms = <15>;
 // -----------------------------------------------------------------------------------------
 // |     ~     |     |     (     /     | | |     *      )      |      |     =     \ 
-// < CAPS LOCK >     |     {     -     | | |     +      }      &      |     |     |
+// < CAPS LOCK >     |     {     -     | | |     +      }      &      |     |     `
 // |     |     |     |     [     !     | | |    "|"     ]      _      |     |     |
 //                   |     |     |     | | |     |      |      |
 		// row 1
@@ -73,8 +73,12 @@
 			key-positions = <20 21>;
 			bindings = <&kp AMPS>;
 		};
+		combo_bktk {
+			key-positions = <22 23>;
+			bindings = <&kp GRAVE>;
+		};
 		
-		// row 2
+		// row 3
 		combo_lbracket {
 			key-positions = <27 28>;
 			bindings = <&kp LBKT>;
