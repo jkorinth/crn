@@ -1,8 +1,8 @@
+#include <behaviors/battery_percentage_printer.dtsi>
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
-#include <behaviors/battery_percentage_printer.dtsi>
 
 / {
     combos {
@@ -224,7 +224,15 @@
         bindings = <&kp>, <&sk>;
 
         #binding-cells = <2>;
-        tapping-term-ms = <150>;
+        tapping-term-ms = <175>;
+        flavor = "balanced";
+    };
+
+    td_flayer: td_flayer {
+        compatible = "zmk,behavior-tap-dance";
+        label = "TD_FLAYER";
+        #binding-cells = <0>;
+        bindings = <&mo 1>, <&tog 2>;
     };
 
     behaviors {
@@ -236,10 +244,10 @@
         hrm_0 {
             display-name = "Home-Row Mods 0";
             bindings = <
-&none  &mt N1 Q  &mt N2 W  &mt N3 E  &mt N4 R  &mt N5 T     &mt N6 Y  &mt N7 U  &mt N8 I   &mt N9 O  &mt N0 P  &none
-&none  &kp A     &kp S     &kp D     &kp F     &kp G        &kp H     &kp J     &kp K      &kp L     &kp SEMI  &none
-&none  &td_caps  &kp X     &kp C     &kp V     &kp B        &kp N     &kp M     &kp COMMA  &kp DOT   &kp FSLH  &none
-                           &none     &mo 1     &kp SPACE    &kp RET   &mo 1     &none
+&none  &mt N1 Q  &mt N2 W  &mt N3 E  &mt N4 R  &mt N5 T     &mt N6 Y  &mt N7 U    &mt N8 I   &mt N9 O  &mt N0 P  &none
+&none  &kp A     &kp S     &kp D     &kp F     &kp G        &kp H     &kp J       &kp K      &kp L     &kp SEMI  &none
+&none  &td_caps  &kp X     &kp C     &kp V     &kp B        &kp N     &kp M       &kp COMMA  &kp DOT   &kp FSLH  &none
+                           &none     &mo 1     &kp SPACE    &kp RET   &td_flayer  &none
             >;
         };
 
@@ -252,6 +260,24 @@
                                  &bapp           &trans           &trans       &trans    &trans    &bapp
             >;
         };
+
+        flayer {
+            bindings = <
+&trans  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5    &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans   &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans   &trans
+                        &trans  &tog 3  &trans    &trans  &tog 2  &trans
+            >;
+        };
+
+        game {
+            bindings = <
+&trans  &kp Q  &kp W  &kp E             &kp ESC       &trans       &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp A  &kp S  &kp D             &kp TAB       &kp LGUI     &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp Z  &kp X  &kp C_PLAY_PAUSE  &kp LCTRL     &kp LSHFT    &sl 2   &trans  &trans  &trans  &trans  &trans
+                      &trans            &kp LEFT_ALT  &trans       &trans  &tog 3  &trans
+            >;
+        };
     };
 };
 
@@ -259,3 +285,5 @@
     tapping-term-ms = <200>;
     flavor = "tap-preferred";
 };
+
+&sk { release-after-ms = <5000>; };
