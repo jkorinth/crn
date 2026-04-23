@@ -151,6 +151,7 @@
         combo_tab {
             bindings = <&kp TAB>;
             key-positions = <13 14>;
+            require-prior-idle-ms = <75>;
         };
 
         combo_lshft {
@@ -263,10 +264,10 @@
 
         flayer {
             bindings = <
-&trans  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5    &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans   &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans   &trans
-                        &trans  &tog 3  &trans    &trans  &tog 2  &trans
+&trans  &mt F11 F1  &mt F12 F2  &kp F3  &kp F4  &kp F5    &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &trans
+&trans  &trans      &trans      &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans   &trans
+&trans  &trans      &trans      &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans   &trans
+                                &trans  &tog 3  &trans    &trans  &tog 2  &trans
             >;
         };
 
