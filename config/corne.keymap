@@ -175,7 +175,7 @@
         };
 
         combo_rctrl {
-            bindings = <&kp RCTRL>;
+            bindings = <&ht_sticky RCTRL RCTRL>;
             key-positions = <19 21>;
         };
 
